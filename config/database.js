@@ -4,10 +4,10 @@ const mysql = require('mysql2');
 
 // Create a connection to the MySQL database
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',  // Replace with your database username
+  host: '106.208.31.168',
+  user: 'v1',  // Replace with your database username
   password: '12345vt6',  // Replace with your database password
-  database: 'hospitalmanagement'  // Your database name
+  database: 'hsm'  // Your database name
 });
 
 // Connect to the database
