@@ -1,20 +1,20 @@
+# Use the official Node.js 16 Alpine image as the base
 FROM node:16-alpine
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /usr/src/app
 
-# Copy package.json and package-lock.json files
+# Copy the package.json and package-lock.json files to the working directory
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install
+RUN npm install 
 
-# Copy the rest of the application files
+# Copy the rest of the application code to the working directory
 COPY . .
 
-# Expose the port that the app runs on
+# Expose the port the app runs on
 EXPOSE 8000
 
-# Define the command to run the application
+# Define the command to start the application
 CMD ["node", "server.js"]
-
