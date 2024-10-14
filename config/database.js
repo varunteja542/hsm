@@ -7,8 +7,7 @@ const db = mysql.createConnection({
   host: 'hsm-db.c96680o4e083.ap-south-1.rds.amazonaws.com',
   user: 'admin',  // Replace with your database username
   password: '12345vt6',  // Replace with your database password
-  database: 'hospitalmanagement
-'  // Your database name
+  database: 'hospitalmanagement'  // Your database name
 });
 
 // Connect to the database
