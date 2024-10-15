@@ -1,0 +1,128 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container for Layout */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Section */
+.header {
+    background-color: #66b245;
+    padding: 10px 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    height: 50px;
+}
+
+.contact-info {
+    text-align: right;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Call to Action Buttons (if needed) */
+.cta a {
+    margin-left: 20px;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.cta a:hover {
+    background-color: #e65c00;
+}
+
+/* Contact Banner */
+.contact-banner {
+    background-color: #1a8bc2;
+    color: white;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.contact-banner h1 {
+    font-size: 2.5rem;
+}
+
+/* Contact Details Section */
+.contact-details {
+    padding: 50px 0;
+}
+
+/* Contact Block Layout */
+.contact-block {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+/* Each contact item styling */
+.address, .phone, .email {
+    width: 30%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading styles for contact details */
+.contact-block h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.contact-block p {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    color: #555;
+}
+
+.contact-block a {
+    color: #1a8bc2;
+    text-decoration: none;
+}
+
+.contact-block a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .contact-block {
+        flex-direction: column;
+    }
+
+    .address, .phone, .email {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .contact-info {
+        text-align: center;
+    }
+}
