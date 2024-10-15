@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Appointment</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <button class="home-button"><a href="index.html">HOME</a></button>
+
+    <h1>Make an Appointment</h1>
+    <form id="appointmentForm">
+        <label for="patientId">Patient ID:</label>
+        <input type="text" id="patientId" name="patientId" required>
+        
+        <label for="doctorId">Doctor ID:</label>
+        <input type="text" id="doctorId" name="doctorId" required>
+        
+        <label for="date">Appointment Date:</label>
+        <input type="date" id="date" name="date" required>
+        
+        <input type="hidden" name="status" value="Pending"> <!-- Default status -->
+        
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const patientId = document.getElementById('patientId').value;
+            const doctorId = document.getElementById('doctorId').value;
+            const date = document.getElementById('date').value;
+
+            try {
+                const response = await fetch('/appointments/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ patientId, doctorId, date, status: 'Pending' }), // Send status as 'Pending'
+                });
+
+                if (response.ok) {
+                    // Redirect to success.html after successful submission
+                    window.location.href = '/success.html';
+                } else {
+                    const errorData = await response.json();
+                    alert('Error: ' + errorData.message); // Show error message
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

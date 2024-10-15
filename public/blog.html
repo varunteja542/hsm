@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        /* Main blog container */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Blog post */
+        .post {
+            margin-bottom: 40px;
+        }
+        .post h2 {
+            color: #333;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+        .post p {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .post .author {
+            font-size: 0.9rem;
+            color: #777;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        .home-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background-color: #4CAF50;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-decoration: none;
+      color: white;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+    }
+
+    .home-button a {
+      color: white;
+      text-decoration: none;
+    }
+
+    .home-button:hover {
+      background-color: #45a049;
+    }
+
+    </style>
+</head>
+<body>
+    <button class="home-button"><a href="index.html">HOME</a></button>
+
+    <header>
+        <h1>Blog</h1>
+    </header>
+
+    <div class="container">
+        <!-- Blog Post 1 -->
+        <div class="post">
+            <h2>First Blog Post</h2>
+            <p class="author">By Jane Doe | October 15, 2024</p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque in accumsan ligula, in lacinia orci. 
+                Nulla facilisi. Phasellus et libero vel ligula pulvinar interdum non ac felis. Cras tincidunt libero 
+                nec ipsum fermentum, at feugiat justo blandit.
+            </p>
+        </div>
+
+        <!-- Blog Post 2 -->
+        <div class="post">
+            <h2>Second Blog Post</h2>
+            <p class="author">By John Smith | October 12, 2024</p>
+            <p>
+                Praesent pharetra purus vel ligula egestas, nec interdum lorem ultricies. Sed non justo felis. 
+                Curabitur euismod sem non massa cursus, eget gravida eros laoreet. Morbi accumsan turpis non felis 
+                fringilla, sit amet laoreet lorem tincidunt.
+            </p>
+        </div>
+
+        <!-- Add more blog posts here -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 My Simple Blog</p>
+    </footer>
+
+</body>
+</html>
