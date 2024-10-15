@@ -4,7 +4,7 @@ const db = require('../config/database');
 class Appointment {
     static create(patientId, doctorId, date, status = 'Pending') {
         return db.execute(
-            'INSERT INTO Appointments (patient_id, doctor_id, appointment_date, status) VALUES (?, ?, ?, ?)',
+            'INSERT INTO Appointments (patientid, doctorid, appointmentdate, Status) VALUES (?, ?, ?, ?)',
             [patientId, doctorId, date, status]
         );
     }
