@@ -35,4 +35,4 @@ COPY --from=development /usr/src/app .
 EXPOSE 3000
 
 # Command to run your application
-CMD ["npm", "startserver.js"]
+CMD ["node", "startserver.js"]
