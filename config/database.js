@@ -2,8 +2,8 @@ const mysql = require('mysql2');
 
 // Create a connection to the MySQL database
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',  // Replace with your database username
+  host: 'hsm-db.c96680o4e083.ap-south-1.rds.amazonaws.com',
+  user: 'admin',  // Replace with your database username
   password: '12345vt6',  // Replace with your database password
   database: 'hospitalmanagement',  // Your database name
   charset: 'utf8mb4' // Use utf8mb4 instead of 'cesu8'
