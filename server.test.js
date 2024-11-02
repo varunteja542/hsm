@@ -30,9 +30,9 @@ describe('/patients/fetch', () => {
 });
 
 // Test for GET /doctors
-describe('/doctor/fetch', () => {
+describe('/appointment/doctors', () => {
   it('should return a list of doctors with 200 OK', async () => {
-    const res = await request(app).get('/doctor/fetch');
+    const res = await request(app).get('/appointment/doctors');
     expect(res.statusCode).toEqual(200);
     expect(res.body).toBeInstanceOf(Array);
   });
