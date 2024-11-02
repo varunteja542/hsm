@@ -87,7 +87,7 @@ describe('POST /doctor/add', () => {
       .post('/doctor/add')
       .send(doctorData);
     
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(201);
     expect(res.text).toBe('Doctor added successfully.'); // Ensure response matches expected text
   });
 
