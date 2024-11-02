@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; }
+        .top-left-button {
+    position: absolute; /* Position it in the top left */
+    top: 20px; /* Adjusts the distance from the top */
+    left: 20px; /* Adjusts the distance from the left */
+}
+
+.admin-button {
+    display: inline-block; /* Makes it behave like a button */
+    padding: 10px 15px; /* Add some padding */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* Text color */
+    text-decoration: none; /* Remove underline */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.admin-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+    </style>
+</head>
+<body>
+    <div class="top-left-button">
+        <a href="admininterface.html" class="admin-button">Go to Admin</a>
+    </div>
+    <div class="container">
+        <h1 class="text-center">Admin Dashboard</h1>
+        <div class="appointments">
+            <h2>Today's Appointments</h2>
+            <ul class="list-group" id="todayAppointments"></ul>
+            <button class="btn btn-primary mt-3" onclick="showPastAppointments()">Show Past Appointments</button>
+            <button class="btn btn-info mt-3" onclick="showFutureAppointments()">Show Future Appointments</button>
+        </div>
+    </div>
+
+    <!-- Modal for New Appointment Notification -->
+    <div class="modal fade" id="newAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="newAppointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newAppointmentModalLabel">New Appointment Notification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    A new appointment has been scheduled!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        function loadTodayAppointments() {
+            fetch('/doctor/appointments/today2')
+                .then(response => response.json())
+                .then(data => {
+                    const list = document.getElementById('todayAppointments');
+                    list.innerHTML = '';
+                    data.forEach(appointment => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item';
+                        li.textContent = `${appointment.patientName} - ${appointment.time}`;
+                        list.appendChild(li);
+                    });
+                });
+        }
+
+        function showPastAppointments() {
+            fetch('/doctor/appointments/past')
+                .then(response => response.json())
+                .then(data => {
+                    alert(JSON.stringify(data, null, 2));
+                });
+        }
+
+        function showFutureAppointments() {
+            fetch('/doctor/appointments/future')
+                .then(response => response.json())
+                .then(data => {
+                    alert(JSON.stringify(data, null, 2));
+                });
+        }
+
+        function showNewAppointmentNotification() {
+            // This function should be called when a new appointment is created
+            $('#newAppointmentModal').modal('show');
+        }
+
+        // Simulate new appointment for demonstration
+        setTimeout(showNewAppointmentNotification, 5000); // Show modal after 5 seconds
+
+        window.onload = loadTodayAppointments;
+    </script>
+</body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body { padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Doctor Dashboard</h1>
+        <div id="doctorProfile" class="text-center mb-4"></div> <!-- Profile Section -->
+        <div class="appointments">
+            <h2>Today's Appointments</h2>
+            <ul class="list-group" id="todayAppointments"></ul>
+            <button class="btn btn-primary mt-3" onclick="showPastAppointments()">Show Past Appointments</button>
+            <button class="btn btn-info mt-3" onclick="showFutureAppointments()">Show Future Appointments</button>
+        </div>
+    </div>
+
+    <!-- Modal for New Appointment Notification -->
+    <div class="modal fade" id="newAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="newAppointmentModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newAppointmentModalLabel">New Appointment Notification</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    A new appointment has been scheduled!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const doctorId = urlParams.get('doctorId'); // Get doctor ID from URL
+
+        function loadDoctorProfile() {
+            fetch(`/doctor/${doctorId}`) // Fetching the doctor profile by ID
+                .then(response => response.json())
+                .then(data => {
+                    const profileContainer = document.getElementById('doctorProfile');
+                    profileContainer.innerHTML = `
+                        <h3>${data.name}</h3>
+                        <p>Specialization: ${data.specialization}</p>
+                        <p>Contact: ${data.contact}</p>
+                        <p>Email: ${data.email}</p>
+                    `;
+                })
+                .catch(error => console.error('Error fetching doctor profile:', error));
+        }
+
+        function loadTodayAppointments() {
+            fetch(`/doctor/${doctorId}/today`)
+                .then(response => response.json())
+                .then(data => {
+                    const list = document.getElementById('todayAppointments');
+                    list.innerHTML = '';
+                    data.forEach(appointment => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item';
+                        li.innerHTML = `
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="appointment${appointment.id}" id="appointmentRadio${appointment.id}" onchange="confirmAppointment(${appointment.id})">
+                                <label class="form-check-label" for="appointmentRadio${appointment.id}">
+                                    ${appointment.patient_name} - ${new Date(appointment.appointment_date).toLocaleString()} (${appointment.status})
+                                </label>
+                            </div>
+                        `;
+                        list.appendChild(li);
+                    });
+                })
+                .catch(error => console.error('Error fetching today\'s appointments:', error));
+        }
+
+        function showPastAppointments() {
+            fetch(`/doctor/${doctorId}/past-appointments`)
+                .then(response => response.json())
+                .then(data => {
+                    const list = document.getElementById('pastAppointments');
+                    list.innerHTML = '';
+                    data.forEach(appointment => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item';
+                        li.innerHTML = `${appointment.patient_name} - ${new Date(appointment.appointment_date).toLocaleString()} (${appointment.status})`;
+                        list.appendChild(li);
+                    });
+                    $('#pastAppointmentsModal').modal('show');
+                })
+                .catch(error => console.error('Error fetching past appointments:', error));
+        }
+
+        function showFutureAppointments() {
+            fetch(`/doctor/${doctorId}/future-appointments`)
+                .then(response => response.json())
+                .then(data => {
+                    const list = document.getElementById('futureAppointments');
+                    list.innerHTML = '';
+                    data.forEach(appointment => {
+                        const li = document.createElement('li');
+                        li.className = 'list-group-item';
+                        li.innerHTML = `${appointment.patient_name} - ${new Date(appointment.appointment_date).toLocaleString()} (${appointment.status})`;
+                        list.appendChild(li);
+                    });
+                    $('#futureAppointmentsModal').modal('show');
+                })
+                .catch(error => console.error('Error fetching future appointments:', error));
+        }
+
+        function confirmAppointment(appointmentId) {
+            fetch(`/doctor/confirm`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ appointmentid: appointmentId }) })
+                .then(response => {
+                    if (response.ok) {
+                        $('#newAppointmentModal').modal('show');
+                        loadTodayAppointments(); // Reload today's appointments after confirmation
+                    } else {
+                        console.error('Error confirming appointment:', response.statusText);
+                    }
+                })
+                .catch(error => console.error('Error confirming appointment:', error));
+        }
+
+        // Load today’s appointments and doctor profile when the page is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            loadTodayAppointments();
+            loadDoctorProfile(); // Call to load the doctor profile
+        });
+    </script>
+
+    <!-- Modal for Past Appointments -->
+    <div class="modal fade" id="pastAppointmentsModal" tabindex="-1" role="dialog" aria-labelledby="pastAppointmentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="pastAppointmentsModalLabel">Past Appointments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="pastAppointments"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for Future Appointments -->
+    <div class="modal fade" id="futureAppointmentsModal" tabindex="-1" role="dialog" aria-labelledby="futureAppointmentsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="futureAppointmentsModalLabel">Future Appointments</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul class="list-group" id="futureAppointments"></ul>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

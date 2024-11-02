@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        button {
+            padding: 10px 15px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 10px;
+            width: calc(100% - 22px);
+        }
+        .admin-button {
+            display: inline-block;
+            padding: 10px 15px;
+            margin-bottom: 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .admin-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="admindashborad.html" class="admin-button">Go to Admin</a>
+        <h1>Doctor Management</h1>
+        <button onclick="fetchDoctors()">Get All Doctors</button>
+        <div id="doctorList"></div>
+
+        <h2>Add a New Doctor</h2>
+        <input type="text" id="name" placeholder="Name" required>
+        <input type="text" id="specialization" placeholder="Specialization" required>
+        <input type="email" id="email" placeholder="Email">
+        <input type="time" id="available_time" placeholder="Available Time" required>
+        <input type="password" id="pass" placeholder="Password">
+        <button onclick="addDoctor()">Add Doctor</button>
+        <div id="message"></div>
+    </div>
+
+    <script>
+        async function fetchDoctors() {
+            try {
+                const response = await fetch('/appointment/doctors');
+                if (!response.ok) throw new Error('Network response was not ok');
+                const doctors = await response.json();
+                displayDoctors(doctors);
+            } catch (error) {
+                console.error('Error fetching doctors:', error);
+            }
+        }
+
+        function displayDoctors(doctors) {
+            const doctorList = document.getElementById('doctorList');
+            doctorList.innerHTML = '<h2>Doctor List</h2>';
+            if (doctors.length === 0) {
+                doctorList.innerHTML += '<p>No doctors found.</p>';
+            } else {
+                doctors.forEach(doctor => {
+                    doctorList.innerHTML += `<p>${doctor.name} - ${doctor.specialization} (Available: ${doctor.available_time})</p>`;
+                });
+            }
+        }
+
+        async function addDoctor() {
+            const name = document.getElementById('name').value;
+            const specialization = document.getElementById('specialization').value;
+            const email = document.getElementById('email').value;
+            const available_time = document.getElementById('available_time').value;
+            const password = document.getElementById('pass').value; // Capture password
+
+            try {
+                const response = await fetch('/doctor/add', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, specialization, email, available_time, password }), // Send password
+                });
+                const message = await response.text();
+                document.getElementById('message').innerText = message;
+                fetchDoctors(); // Refresh the list
+                document.getElementById('name').value = '';
+                document.getElementById('specialization').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('available_time').value = '';
+                document.getElementById('pass').value = '';
+            } catch (error) {
+                console.error('Error adding doctor:', error);
+            }
+        }
+    </script>
+</body>
+</html>
