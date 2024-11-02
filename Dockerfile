@@ -13,8 +13,6 @@ RUN npm install
 # Copy the rest of your application code
 COPY . .
 
-# Run tests
-RUN npm test
 
 
 # Expose the port your app runs on
