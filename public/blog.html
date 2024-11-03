@@ -5,89 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple Blog</title>
     <style>
-        /* General Styles */
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
+Blog.css
+ /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-        /* Main blog container */
-        .container {
-            width: 80%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Soft shadow under header */
+}
 
-        /* Blog post */
-        .post {
-            margin-bottom: 40px;
-        }
-        .post h2 {
-            color: #333;
-            font-size: 2rem;
-            margin-bottom: 10px;
-        }
-        .post p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
-        .post .author {
-            font-size: 0.9rem;
-            color: #777;
-        }
+header h1 {
+    margin: 0;
+    font-size: 2.5rem; /* Increased font size */
+}
 
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-        footer p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-        .home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #4CAF50;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
+/* Main blog container */
+.container {
+    width: 80%;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px; /* Rounded corners for the container */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Blog post */
+.post {
+    margin-bottom: 40px;
+    padding: 15px;
+    border-left: 4px solid #4CAF50; /* Left border for visual separation */
+    background-color: #f9f9f9; /* Light grey background for posts */
+    border-radius: 5px; /* Rounded corners for posts */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.post:hover {
+    background-color: #e9ffe9; /* Light green on hover */
+}
+
+.post h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.post p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.post .author {
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* Footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative; /* Changed to relative for better footer placement */
+    bottom: 0;
+    width: 100%;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+/* Home Button */
+.home-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background-color: #4CAF50;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition for smooth hover effect */
+}
+
+.home-button a {
+    color: white;
+    text-decoration: none;
+}
+
+.home-button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        width: 95%; /* More responsive width on smaller screens */
     }
-
-    .home-button a {
-      color: white;
-      text-decoration: none;
+    
+    header h1 {
+        font-size: 2rem; /* Smaller heading on mobile */
     }
-
-    .home-button:hover {
-      background-color: #45a049;
-    }
+}
 
     </style>
 </head>
