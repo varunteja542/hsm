@@ -5,75 +5,102 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hospital Management - Services</title>
   <style>
-    /* Basic reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    /* Body Styling */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-    }
+    Services.css
+/* Basic reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    /* Header Styling */
-    .header {
-      background: linear-gradient(90deg, #3a6dbf, #85c3dc);
-      color: white;
-      padding: 50px;
-      text-align: center;
-    }
+/* Body Styling */
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+}
 
-    .header h1 {
-      font-size: 3rem;
-    }
+/* Header Styling */
+.header {
+  background: linear-gradient(90deg, #3a6dbf, #85c3dc);
+  color: white;
+  padding: 50px 20px;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
 
-    .service {
-      background-color: white;
-      margin: 20px auto;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0);
-      max-width: 900px;
-    }
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
 
-    .service h2 {
-      font-size: 2rem;
-      color: #333;
-      margin-bottom: 15px;
-    }
+.header p {
+  font-size: 1.2rem;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+/* Service Container */
+.service-container {
+  max-width: 900px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+/* Service Card Styling */
+.service {
+  background-color: white;
+  margin: 20px 0;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.service:hover {
+  transform: translateY(-5px);
+}
+
+.service h2 {
+  font-size: 2rem;
+  color: #3a6dbf;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #85c3dc;
+  padding-bottom: 10px;
+}
 
 .service p {
   font-size: 1.1rem;
   color: #555;
   line-height: 1.6;
-  border: 1px solid #ddd; 
-  border-radius: 10px;
 }
+
+/* Home Button Styling */
 .home-button {
-      position: fixed;
-      top: 20px;
-      left: 20px;
-      background-color: #4CAF50;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-    }
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background-color: #4CAF50;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
 
-    .home-button a {
-      color: white;
-      text-decoration: none;
-    }
+.home-button a {
+  color: white;
+  text-decoration: none;
+}
 
-    .home-button:hover {
-      background-color: #45a049;
-    }
+.home-button:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+}
 
 
 
