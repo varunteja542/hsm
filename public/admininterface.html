@@ -5,46 +5,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doctor Management</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f4f4f4;
-        }
-        h1 {
-            color: #333;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            background: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        button {
-            padding: 10px 15px;
-            margin-top: 10px;
-            cursor: pointer;
-        }
-        input {
-            margin-bottom: 10px;
-            padding: 10px;
-            width: calc(100% - 22px);
-        }
-        .admin-button {
-            display: inline-block;
-            padding: 10px 15px;
-            margin-bottom: 20px;
-            background-color: #007bff;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-        .admin-button:hover {
-            background-color: #0056b3;
-        }
+       
+AdminInterface.css
+body {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background color for contrast */
+}
+
+.admin-button {
+    padding: 10px 15px;
+    background-color: #007bff; /* Primary button color */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.admin-button:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+h1 {
+    text-align: center; /* Center align the main title */
+    color: #343a40; /* Darker color for contrast */
+}
+
+.appointments {
+    margin-top: 30px; /* Spacing for appointments section */
+}
+
+.list-group-item {
+    background-color: #ffffff; /* White background for list items */
+    border: 1px solid #dee2e6; /* Light border */
+    border-radius: 5px;
+    margin-bottom: 10px; /* Spacing between items */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.list-group-item:hover {
+    background-color: #f1f1f1; /* Light gray on hover */
+}
+
+.modal-content {
+    border-radius: 5px; /* Rounded corners for modal */
+}
+
+.modal-header {
+    background-color: #007bff; /* Primary color for modal header */
+    color: white; /* White text color */
+}
+
+.modal-footer {
+    background-color: #f8f9fa; /* Light footer background */
+}
+
+.modal-footer .btn-secondary {
+    background-color: #6c757d; /* Secondary button color */
+    border: none; /* No border for the secondary button */
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #5a6268; /* Darker shade on hover */
+}
     </style>
 </head>
 <body>
