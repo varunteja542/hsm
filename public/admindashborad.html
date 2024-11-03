@@ -6,8 +6,14 @@
     <title>Admin Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { padding: 20px; }
-        .top-left-button {
+       
+AdminDasboardInterface.css
+ body {
+    padding: 20px;
+    background-color: #f8f9fa; /* Light background for the entire body */
+}
+
+.top-left-button {
     position: absolute; /* Position it in the top left */
     top: 20px; /* Adjusts the distance from the top */
     left: 20px; /* Adjusts the distance from the left */
@@ -26,7 +32,37 @@
 .admin-button:hover {
     background-color: #0056b3; /* Darker shade on hover */
 }
-    </style>
+
+/* Styles for today's appointments */
+.appointments {
+    margin-top: 30px; /* Space above the appointments section */
+}
+
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for card */
+}
+
+.card-header {
+    background-color:  #0056b3; /* Card header background color */
+    color: black; /* Text color for header */
+}
+
+#todayAppointments {
+    margin-top: 20px; /* Add spacing above the appointment list */
+}
+
+.list-group-item {
+    background-color: #e9ecef; /* Light background for list items */
+    border: 1px solid #ced4da; /* Border color */
+    color: #343a40; /* Dark text color for contrast */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition */
+}
+
+.list-group-item:hover {
+    background-color: #007bff; /* Change background on hover to primary color */
+    color: white; /* Change text color to white on hover for contrast */
+    transform: scale(1.02); /* Slight zoom effect on hover */
+}</style>
 </head>
 <body>
     <div class="top-left-button">
