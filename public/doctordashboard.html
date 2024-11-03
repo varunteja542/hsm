@@ -6,13 +6,90 @@
     <title>Doctor Dashboard</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { padding: 20px; }
+        DoctorsDashboard.css
+body {
+    background: linear-gradient(to right, #e2e2e2, #ffffff); 
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+}
+
+.container {
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+    padding: 30px;
+    margin-top: 20px;
+}
+
+h1, h2 {
+    color: #007bff;
+}
+
+.appointments {
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 20px;
+    background-color: #f8f9fa; 
+}
+
+.appointment-card {
+    margin-bottom: 15px;
+    border: 1px solid #007bff;
+    border-radius: 5px;
+    padding: 15px;
+    background-color: #ffffff;
+    transition: transform 0.2s;
+}
+
+.appointment-card:hover {
+    transform: scale(1.02); 
+}
+
+.btn {
+    border-radius: 25px; 
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; 
+}
+
+.modal-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.modal-body {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    .appointment-card {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.5em;
+    }
+}
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="text-center">Doctor Dashboard</h1>
-        <div id="doctorProfile" class="text-center mb-4"></div> <!-- Profile Section -->
+        <div id="doctorProfile" class="text-center mb-4"></div> 
         <div class="appointments">
             <h2>Today's Appointments</h2>
             <ul class="list-group" id="todayAppointments"></ul>
@@ -21,7 +98,7 @@
         </div>
     </div>
 
-    <!-- Modal for New Appointment Notification -->
+   
     <div class="modal fade" id="newAppointmentModal" tabindex="-1" role="dialog" aria-labelledby="newAppointmentModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -47,10 +124,10 @@
 
     <script>
         const urlParams = new URLSearchParams(window.location.search);
-        const doctorId = urlParams.get('doctorId'); // Get doctor ID from URL
+        const doctorId = urlParams.get('doctorId'); 
 
         function loadDoctorProfile() {
-            fetch(`/doctor/${doctorId}`) // Fetching the doctor profile by ID
+            fetch(`/doctor/${doctorId}`)
                 .then(response => response.json())
                 .then(data => {
                     const profileContainer = document.getElementById('doctorProfile');
