@@ -67,3 +67,59 @@ exports.saveAppointment = (appointmentData, callback) => {
     callback(null, result);
   });
 };
+// models/app.js
+
+// Function to fetch today's appointments (Confirmed only)
+exports.getTodayAppointments = (callback) => {
+  const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+  const query = `
+    SELECT patient_name, appointment_date
+    FROM appointment
+    WHERE appointment_date = ? 
+  `;
+  
+  db.query(query, [today], (err, results) => {
+    if (err) {
+      console.error('Error fetching today\'s appointments:', err);
+      return callback(err);
+    }
+    callback(null, results);
+  });
+};
+
+// Function to get past appointments (Confirmed only)
+exports.getPastAppointments = (callback) => {
+  const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+  const query = `
+    SELECT patient_name, appointment_date
+    FROM appointment
+    WHERE appointment_date < ? 
+  `;
+  
+  db.query(query, [today], (err, results) => {
+    if (err) {
+      console.error('Error fetching past appointments:', err);
+      return callback(err);
+    }
+    callback(null, results);
+  });
+};
+
+// Function to get future appointments (Confirmed only)
+exports.getFutureAppointments = (callback) => {
+  const today = new Date().toISOString().split('T')[0]; // Get current date in YYYY-MM-DD format
+  const query = `
+    SELECT patient_name, appointment_date
+    FROM appointment
+    WHERE appointment_date > ? 
+  `;
+  
+  db.query(query, [today], (err, results) => {
+    if (err) {
+      console.error('Error fetching future appointments:', err);
+      return callback(err);
+    }
+    callback(null, results);
+  });
+};
+
