@@ -3,75 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="contact.css">
+    <title>Contact Us - Doctery Hospital</title>
     <style>
-        .home-button {
-      position: fixed;
-      top: 20px;
-      left: 1100px;
-      background-color: #4CAF50;
-      padding: 10px 20px;
-      border-radius: 5px;
-      text-decoration: none;
-      color: white;
-      font-size: 1rem;
-      border: none;
-      cursor: pointer;
-    }
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .home-button a {
-      color: white;
-      text-decoration: none;
-    }
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    .home-button:hover {
-      background-color: #45a049;
-    }
+        header {
+            background-color: #00bcd4;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        h1, h2, h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        #contact-form, #feedback form {
+            display: flex;
+            flex-direction: column;
+            max-width: 600px;
+        }
+
+        form label {
+            margin-top: 10px;
+        }
+
+        form input, form textarea, form select, form button {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        button {
+            background-color: #00bcd4;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0097a7;
+        }
+
+        .map {
+            width: 100%;
+            height: 300px;
+            margin: 15px 0;
+        }
+
+        /* Add more styling as needed */
 
     </style>
 </head>
 <body>
-    <button class="home-button"><a href="index.html">HOME</a></button>
 
-    <header class="header">
-        <div class="container">
-            <img src="C:\Users\Samee\Downloads\pngegg.png" alt=" Logo" class="logo">
-            <div class="contact-info">
-                <p>Phone: <a href="tel:08047091894">0123456789</a></p>
-                <p>Email: <a href="mailto:contactus@docpulse.com">contactus@doc.com</a></p>
-            </div>
-            <div class="cta">
-                
-            </div>
-        </div>
-    </header>
+<!-- Header Section -->
+<header>
+    <div class="logo">Doctery Hospital</div>
+    <nav>
+        <a href="#contact-form">Contact Form</a>
+        <a href="#locations">Our Locations</a>
+        <a href="#faq">FAQs</a>
+        <a href="#careers">Careers</a>
+        <a href="#feedback">Feedback</a>
+    </nav>
+</header>
 
-    <section class="contact-banner">
+<!-- Main Content -->
+<main>
+    <!-- Contact Form Section -->
+    <section id="contact-form">
         <h1>Contact Us</h1>
+        <p>If you have any questions or need assistance, please fill out the form below, and a representative will get back to you shortly.</p>
+        
+        <form action="submit_form.php" method="post">
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Phone:</label>
+            <input type="tel" id="phone" name="phone">
+
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" name="subject" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
     </section>
 
-    <section class="contact-details">
-        <div class="container">
-            <div class="contact-block">
-                <div class="address">
-                    <h3>Address</h3>
-                    <p>Address</p>
-                </div>
-                <div class="phone">
-                    <h3>Phone</h3>
-                    <p>Support Team: <a href="tel:*********">**********</a></p>
-                </div>
-                <div class="email">
-                    <h3>Email</h3>
-                    <p>Technical Support: <a href="mailto:support@doc.com">support@docpulse.com</a></p>
-                </div>
+    <!-- Our Locations Section -->
+    <section id="locations">
+        <h2>Our Locations</h2>
+        <p>Doctery Hospital has multiple locations to serve you better. Find a hospital near you:</p>
+        
+        <!-- Location 1 -->
+        <div class="location">
+            <h3>Doctery Hospital - Hyderabad</h3>
+            <p>Address: Road No. 10, Banjara Hills, Hyderabad, Telangana - 500034</p>
+            <p>Phone: <a href="tel:+914061656565">040 6165 6565</a></p>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.2711812583136!2d78.441858!3d17.4155738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb97320b3f6c1b%3A0x6d58db53b7ec6508!2sBanjara%20Hills%20Rd%20Number%2010%2C%20Hyderabad%2C%20Telangana%20500034!5e0!3m2!1sen!2sin!4v1604073205434!5m2!1sen!2sin"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
             </div>
         </div>
+
+        <!-- Location 2 -->
+        <div class="location">
+            <h3>Doctery Hospital - New Delhi</h3>
+            <p>Address: 25, Press Enclave Road, Saket, New Delhi, Delhi - 110017</p>
+            <p>Phone: <a href="tel:+911141656565">011 4165 6565</a></p>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3769.5831696236637!2d77.2094!3d28.5225478!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390ce3f1b61b1d6d%3A0xaf5a6bd6a53cf080!2sSaket%20District%20Centre%2C%20Press%20Enclave%20Road%2C%20Saket%2C%20New%20Delhi%2C%20Delhi%20110017!5e0!3m2!1sen!2sin!4v1604073205434!5m2!1sen!2sin"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Location 3 -->
+        <div class="location">
+            <h3>Doctery Hospital - Mumbai</h3>
+            <p>Address: 89, Marol Maroshi Road, Andheri East, Mumbai, Maharashtra - 400059</p>
+            <p>Phone: <a href="tel:+912241656565">022 4165 6565</a></p>
+            <div class="map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.0951562286346!2d72.8703!3d19.1124358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7b63bfcfc3f35%3A0xfcc8cfc6f0d0e2dd!2sMarol%20Maroshi%20Rd%2C%20Andheri%20East%2C%20Mumbai%2C%20Maharashtra%20400059!5e0!3m2!1sen!2sin!4v1604073205434!5m2!1sen!2sin"
+                    width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+        </div>
+
+        <!-- Add more locations as needed -->
     </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <h2>Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+            <h3>What are the visiting hours?</h3>
+            <p>Visiting hours are from 9:00 AM to 7:00 PM daily. Specific departments may have different visiting hours, so please confirm with the hospital reception.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>How can I book an appointment?</h3>
+            <p>Appointments can be booked through our website or by calling our 24/7 helpline at <a href="tel:+914061656565">040 6165 6565</a>.</p>
+        </div>
+
+        <div class="faq-item">
+            <h3>What should I bring to my appointment?</h3>
+            <p>Please bring any previous medical records, identification, and any relevant test reports. For insurance patients, bring the necessary documentation.</p>
+        </div>
+    </section>
+
+    <!-- Careers Section -->
+    <section id="careers">
+        <h2>Careers at Doctery Hospital</h2>
+        <p>We're always looking for passionate and skilled individuals to join our team. Please send your resume and cover letter to <a href="mailto:careers@docteryhospital.com">careers@docteryhospital.com</a> if you're interested in joining us.</p>
+    </section>
+
+    <!-- Feedback Section -->
+    <section id="feedback">
+        <h2>We Value Your Feedback</h2>
+        <p>Your feedback helps us improve our services. Please share your thoughts below.</p>
+        
+        <form action="submit_feedback.php" method="post">
+            <label for="feedback-name">Name:</label>
+            <input type="text" id="feedback-name" name="name" required>
+
+            <label for="feedback-email">Email:</label>
+            <input type="email" id="feedback-email" name="email" required>
+
+            <label for="feedback-message">Feedback:</label>
+            <textarea id="feedback-message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Submit Feedback</button>
+        </form>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2024 Doctery Hospital. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
-
-
-
