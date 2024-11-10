@@ -3,179 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - DocPulse</title>
-    <style>
-About.css
-
-/* Reset */
+    <title>CARE Hospitals - About Us</title>
+   <style>
+    /* Basic Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Global Styles */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
-    color: #333;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-/* Header Styles */
-.header {
-    background-color: #66b245;
-    padding: 10px 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.logo {
-    height: 50px;
-    margin-right: 10px;
-}
-
-.logo-text {
-    font-size: 1.8rem;
+header {
+    background-color: #00bcd4;
     color: white;
-    font-weight: bold;
+    padding: 15px;
     display: flex;
+    justify-content: space-between;
     align-items: center;
 }
 
-.logo-text i {
-    margin-right: 8px;
-    font-size: 1.5rem;
-}
-
-/* Navigation Styles */
-.nav-links {
-    list-style: none;
-    display: flex;
-}
-
-.nav-links li {
-    margin-left: 20px;
-}
-
-.nav-links a {
+header nav a {
     color: white;
     text-decoration: none;
+    margin: 0 10px;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+aside {
+    width: 20%;
+    background: #f4f4f4;
     padding: 10px;
-    background-color: transparent;
-    transition: background-color 0.3s ease;
-    border-radius: 5px;
 }
 
-.nav-links a.active,
-.nav-links a:hover {
-    background-color: #4d8c35;
+aside ul {
+    list-style: none;
+    padding: 10px 0;
 }
 
-/* Banner Section */
-.about-banner {
-    background-color: #1a8bc2;
-    color: white;
-    text-align: center;
-    padding: 50px 0;
+aside ul li a {
+    display: block;
+    color: #00bcd4;
+    text-decoration: none;
+    padding: 5px 0;
 }
 
-.about-banner h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
+section {
+    width: 80%;
+    padding-left: 20px;
 }
 
-/* Content Section */
-.about-content {
-    padding: 50px 0;
-}
-
-.about-content h2 {
-    margin-bottom: 20px;
-    font-size: 2rem;
-    color: #66b245;
-}
-
-.about-content p, .about-content ul {
-    margin-bottom: 20px;
-    color: #555;
-}
-
-.about-content ul {
-    list-style: disc;
-    margin-left: 20px;
-}
-
-.about-content ul li {
+h1, h2 {
+    color: #333;
     margin-bottom: 10px;
 }
 
-/* Home Button */
-.home-button {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    background-color: #66b245;
-    padding: 12px 24px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-    cursor: pointer;
+ul {
+    margin: 15px 0;
+    padding-left: 20px;
 }
 
-.home-button a {
+footer {
+    background-color: #00bcd4;
     color: white;
-    text-decoration: none;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
 }
 
-.home-button:hover {
-    background-color: #4d8c35;
-    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
-}
-
-    </style>
+   </style>
 </head>
 <body>
-    <button class="home-button"><a href="index.html">HOME</a></button>
 
-    <header class="header">
-        <div class="container">
-            <img src="logo.png" alt="Doctory Logo" class="logo">
-        </div>
-    </header>
+<!-- Header Section -->
+<header>
+    <div class="logo">Doctery Hospitals</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="app.html">Book Appointment</a>
+        <a href="#mission">Mission & Values</a>
+        <a href="services.html">Services</a>
+        <a href="contactus[1].html">Contact Us</a>
+    </nav>
+</header>
 
-    <section class="about-banner">
-        <h1>About Us</h1>
+<!-- Main Content -->
+<main>
+    <!-- Sidebar Section -->
+    <aside>
+        <ul>
+            <li><a href="#about">About CARE Hospitals</a></li>
+            <li><a href="#history">History</a></li>
+            <li><a href="#mission">Mission & Values</a></li>
+            <li><a href="#facilities">Facilities</a></li>
+            <li><a href="#departments">Departments</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#awards">Awards & Recognition</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </aside>
+
+    <!-- Main Section -->
+    <section>
+        <!-- Overview Section -->
+        <h1 id="about">About Us</h1>
+        <p>CARE Hospitals, established in 1997, is one of India's leading multi-specialty healthcare providers with a network of hospitals across multiple cities. We are dedicated to delivering quality healthcare to communities with compassion and professionalism.</p>
+
+        <!-- History Section -->
+        <h2 id="history">Our History</h2>
+        <p>Founded by a team of India’s leading cardiologists, CARE Hospitals began as a 100-bed heart institute. Over the years, it has expanded to include multiple specialties and has grown to serve communities across six states in India, becoming a trusted name in healthcare.</p>
+
+        <!-- Mission & Values Section -->
+        <h2 id="mission">Our Mission & Values</h2>
+        <p>Our mission is to make quality healthcare accessible to everyone. CARE Hospitals operates with values of integrity, empathy, and dedication, focusing on patient-centered care, cutting-edge technology, and continuous improvement in medical practices.</p>
+
+        <!-- Facilities Section -->
+        <h2 id="facilities">State-of-the-Art Facilities</h2>
+        <ul>
+            <li>24/7 Emergency Care</li>
+            <li>Advanced Diagnostic Imaging (MRI, CT Scans, X-ray)</li>
+            <li>Intensive Care Units (ICU, NICU, PICU)</li>
+            <li>Fully Equipped Operation Theaters</li>
+            <li>Pharmacy and Laboratory Services</li>
+            <li>Advanced Cardiac Care Unit</li>
+            <li>In-house Blood Bank</li>
+        </ul>
+
+        <!-- Departments Section -->
+        <h2 id="departments">Our Departments</h2>
+        <p>CARE Hospitals is home to multiple departments, each staffed with expert healthcare professionals.</p>
+        <ul>
+            <li>Cardiology</li>
+            <li>Neurology</li>
+            <li>Oncology</li>
+            <li>Orthopedics</li>
+            <li>Gastroenterology</li>
+            <li>Endocrinology</li>
+            <li>Pediatrics</li>
+            <li>Gynecology and Obstetrics</li>
+        </ul>
+
+        <!-- Services Section -->
+        <h2 id="services">Our Services</h2>
+        <p>From diagnostics to surgeries, our hospital offers a wide range of services aimed at providing holistic healthcare:</p>
+        <ul>
+            <li>Outpatient and Inpatient Care</li>
+            <li>Preventive Health Check-ups</li>
+            <li>Minimally Invasive Surgery</li>
+            <li>Rehabilitation and Physiotherapy</li>
+            <li>Emergency and Trauma Services</li>
+            <li>Organ Transplantation Services</li>
+        </ul>
+
+        <!-- Testimonials Section -->
+        <h2 id="testimonials">Patient Testimonials</h2>
+        <blockquote>"CARE Hospitals provided exceptional care and made me feel at ease during my surgery. The staff was compassionate and attentive." - A. Patel</blockquote>
+        <blockquote>"The doctors here are very knowledgeable and the facilities are top-notch. I felt well cared for during my entire stay." - R. Sharma</blockquote>
+
+        <!-- Awards Section -->
+        <h2 id="awards">Awards & Recognition</h2>
+        <ul>
+            <li>Best Hospital for Cardiac Care - 2022</li>
+            <li>National Healthcare Excellence Award - 2021</li>
+            <li>Top Multi-Specialty Hospital Award - 2020</li>
+        </ul>
+
+        <!-- Contact Section -->
+        <h2 id="contact">Contact Us</h2>
+        <p>For more information, feel free to reach out:</p>
+        <p>Phone: <a href="tel:+914061656565">040 6165 6565</a></p>
+        <p>Email: <a href="mailto:info@carehospitals.com">info@carehospitals.com</a></p>
+        <p>Address: CARE Hospitals, Hyderabad, India</p>
     </section>
+</main>
 
-    <section class="about-content">
-        <div class="container">
-            <h2>Our Missions</h2>
-            <p>We are dedicated to revolutionizing healthcare with innovative technology solutions that empower clinics, hospitals, and healthcare providers. Our mission is to create seamless digital experiences for patients and providers alike, making healthcare more accessible, efficient, and personalized.</p>
+<!-- Footer Section -->
+<footer>
+    <p>&copy; 2024 Doctery Hospitals. All rights reserved.</p>
+</footer>
 
-            <h2>Who We Are</h2>
-            <p>Founded in India, we have heen a leading healthcare technology company offering state-of-the-art software and platforms designed to meet the unique challenges of the healthcare industry. From electronic medical records to patient engagement systems, we provide comprehensive, reliable solutions.</p>
-
-            <h2>Our Values</h2>
-            <ul>
-                <li><strong>Innovation</strong>: We strive to continuously improve and stay ahead of the curve with cutting-edge technologies.</li>
-                <li><strong>Integrity</strong>: We maintain the highest ethical standards and are transparent in everything we do.</li>
-                <li><strong>Customer-Centric</strong>: Our clients and their patients are at the heart of every solution we build.</li>
-            </ul>
-
-            <h2>Our Team</h2>
-            <p>Our team consists of passionate professionals with extensive experience in healthcare and technology. We work collaboratively to provide the best possible solutions and to drive the future of healthcare forward.</p>
-
-           
-        </div>
-    </section>
+<!-- External JS File -->
+<script src="script.js"></script>
 </body>
 </html>
