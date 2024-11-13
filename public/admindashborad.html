@@ -22,8 +22,23 @@
             border-radius: 5px; /* Rounded corners */
             transition: background-color 0.3s; /* Smooth transition */
         }
+        .log {
+            display: inline-block; /* Makes it behave like a button */
+            padding: 10px 45px; /* Add some padding */
+            background-color: #007bff; /* Bootstrap primary color */
+            color: white; /* Text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition */
+           margin-inline-start: auto;
+           margin-bottom:20% ;
+            
+        }
 
         .admin-button:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
+        .log:hover {
             background-color: #0056b3; /* Darker shade on hover */
         }
 
@@ -36,7 +51,7 @@
 <body>
     <div class="top-left-button">
         <a href="admininterface.html" class="admin-button">Docter Management</a>
-        <a href="admin.html" >Log Out</a>
+        <a href="admin.html" class="log" >Log Out</a>
     </div>
     <div class="container">
         <h1 class="text-center">Admin Dashboard</h1>
