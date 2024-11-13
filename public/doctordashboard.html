@@ -83,11 +83,26 @@ h1, h2 {
     h1, h2 {
         font-size: 1.5em;
     }
+     .log {
+            display: inline-block; /* Makes it behave like a button */
+            padding: 10px 45px; /* Add some padding */
+            background-color: #007bff; /* Bootstrap primary color */
+            color: white; /* Text color */
+            text-decoration: none; /* Remove underline */
+            border-radius: 5px; /* Rounded corners */
+            transition: background-color 0.3s; /* Smooth transition */
+          
+            
+        }
+        .log:hover {
+            background-color: #0056b3; /* Darker shade on hover */
+        }
 }
     </style>
 </head>
 <body>
     <div class="container">
+        <a href="doctorlogin.html" class="log">Log Out</a>
         <h1 class="text-center">Doctor Dashboard</h1>
         <div id="doctorProfile" class="text-center mb-4"></div> 
         <div class="appointments">
